@@ -24,8 +24,9 @@ public class Main {
     }
 
     public static Long getMin(){
-        long result = 1;
+        long result = 0;
         for(int i=0; i<map.size(); i++){
+            result++;
             int people = map.get(i)-pm;
             if(people < 0 ) continue;
             result += people / pl; 
