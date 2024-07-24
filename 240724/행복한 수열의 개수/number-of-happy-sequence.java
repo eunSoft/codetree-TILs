@@ -28,61 +28,43 @@ public class Main {
             System.out.println(2);
             return;
         }
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                //탐색을 시작할 점 i,j
-                //i가 0이라면 아래로만 탐색가능
-                //j가 0이라면 옆으로만 탐색가능
-                // 둘다 아니라면 탐색x
-                if(i!=0 && j!=0) continue;
+        //행에 대해서 비교
+        int continuity = 0;
 
-//                System.out.println(i+" "+j);
-//                System.out.println("=============");
-                check(i,j);
+        for(int i=0; i<n; i++){
+            int recent = map[i][0];
+            for(int j=0; j<n; j++){
+                if(j==0) {
+                    continuity++;
+                    continue;
+                }
+                if(recent == map[i][j]) continuity++;
+                else {
+                    continuity = 1;
+                    recent = map[i][j];
+                }
             }
+            if(continuity>=m) happyCnt++;
+        }
+
+        for(int i=0; i<n; i++){
+            int recent = map[0][i];
+            for(int j=0; j<n; j++){
+                if(j==0) {
+                    continuity++;
+                    continue;
+                }
+                if(recent == map[j][i]) continuity++;
+                else {
+                    continuity = 1;
+                    recent = map[j][i];
+                }
+            }
+            if(continuity>=m) happyCnt++;
         }
         System.out.println(happyCnt);
 
 
-
-    }
-    static void check(int startx, int starty){
-        //System.out.println(startx+" "+starty);
-        int continuity = 0;
-        int recent = map[startx][starty];
-        //System.out.println(recent);
-        //x 가 0이라면 아래로 탐색
-        //y 가 0이라면 오른쪽으로 탐색
-        if(startx==0){
-
-            for(int i=0; i<n; i++){
-                //System.out.println(recent + " " + map[0][i]);
-                // if(continuity>=m) {
-                //     happyCnt++;
-                //     break;
-                // }
-                if(recent == map[i][starty]) continuity++;
-                else {
-                    recent = map[i][starty];
-                    continuity = 1;
-                }
-            }
-            if(continuity>=m) happyCnt++;
-        }
-        if(starty==0)
-            for(int i=0; i<n; i++){
-                //System.out.println(recent + "  "+ map[i][0]);
-                // if(continuity>=m) {
-                //     happyCnt++;
-                //     break;
-                // }
-                if(recent == map[startx][i]) continuity++;
-                else{
-                    recent = map[startx][i];
-                    continuity = 1;
-                }
-            }
-            if(continuity>=m) happyCnt++;
 
     }
 }
