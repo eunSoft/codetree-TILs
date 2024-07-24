@@ -16,11 +16,17 @@ public class Main {
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
 
+
         for(int i=0; i<n; i++){
             st = new StringTokenizer(br.readLine());
             for(int j=0; j<n; j++){
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
+        }
+
+        if(n==1) {
+            System.out.println(2);
+            return;
         }
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
@@ -29,6 +35,9 @@ public class Main {
                 //j가 0이라면 옆으로만 탐색가능
                 // 둘다 아니라면 탐색x
                 if(i!=0 && j!=0) continue;
+
+//                System.out.println(i+" "+j);
+//                System.out.println("=============");
                 check(i,j);
             }
         }
@@ -39,14 +48,14 @@ public class Main {
     }
     static void check(int startx, int starty){
         //System.out.println(startx+" "+starty);
-        int continuity = 1;
+        int continuity = 0;
         int recent = map[startx][starty];
         //System.out.println(recent);
         //x 가 0이라면 아래로 탐색
         //y 가 0이라면 오른쪽으로 탐색
         if(startx==0){
 
-            for(int i=1; i<n; i++){
+            for(int i=0; i<n; i++){
                 //System.out.println(recent + " " + map[0][i]);
                 if(continuity>=m) {
                     happyCnt++;
@@ -60,7 +69,7 @@ public class Main {
             }
         }
         if(starty==0)
-            for(int i=1; i<n; i++){
+            for(int i=0; i<n; i++){
                 //System.out.println(recent + "  "+ map[i][0]);
                 if(continuity>=m) {
                     happyCnt++;
