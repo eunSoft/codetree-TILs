@@ -67,6 +67,7 @@ public class Main {
                     continuity = 1;
                 }
             }
+            if(continuity>=m) happyCnt++;
         }
         if(starty==0)
             for(int i=0; i<n; i++){
@@ -81,6 +82,7 @@ public class Main {
                     continuity = 1;
                 }
             }
+            if(continuity>=m) happyCnt++;
 
     }
 }
