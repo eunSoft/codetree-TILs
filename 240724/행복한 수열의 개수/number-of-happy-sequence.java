@@ -57,10 +57,10 @@ public class Main {
 
             for(int i=0; i<n; i++){
                 //System.out.println(recent + " " + map[0][i]);
-                if(continuity>=m) {
-                    happyCnt++;
-                    break;
-                }
+                // if(continuity>=m) {
+                //     happyCnt++;
+                //     break;
+                // }
                 if(recent == map[i][starty]) continuity++;
                 else {
                     recent = map[i][starty];
@@ -72,10 +72,10 @@ public class Main {
         if(starty==0)
             for(int i=0; i<n; i++){
                 //System.out.println(recent + "  "+ map[i][0]);
-                if(continuity>=m) {
-                    happyCnt++;
-                    break;
-                }
+                // if(continuity>=m) {
+                //     happyCnt++;
+                //     break;
+                // }
                 if(recent == map[startx][i]) continuity++;
                 else{
                     recent = map[startx][i];
